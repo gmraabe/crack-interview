@@ -1,14 +1,17 @@
 def isprime(num):
    """
    int -> bool
-   checks if a number is prime, only need to check odd numbers, and numbers less
-   than half the number.
+   checks if a number is prime, only need to check odd numbers (if greater than 2), 
+   and only need to try dividing by numbers less than half the number. All numbers 
+   less than 2 are not prime.
    >>> isprime(5)
    True
    >>> isprime(10)
    False
    """
-   if num % 2 == 0:
+   if num == 2:
+      return True
+   if num % 2 == 0 or num < 2:
       return False
    for i in range(3,num//2 + 1,2):
       if (num % i == 0):

@@ -18,36 +18,28 @@ def isprime(num):
          return False
    return True
 
-def ispalindrome(num):
-   """
-   int -> bool
-   checks if a number is a palindrome, only need to check numbers with more than one
-   digit. 
-   >>> ispalindrome(123)
-   False
-   >>> ispalindrome(121)
-   True
-   """
-   return num == int(str(num)[::-1])
-
-
-def prime_palindrome():
+def sum_primes():
    """
    () -> int
    Write a program to determine the biggest prime palindrome under 1000.
-   >>> prime_palindrome()
-   929
+   >>> sum_primes()
+   3682913
    """
-   # only need to look at odd numbers.
-   t = True
-   i = 999
-   while t:
+   sum_now = 0
+   # after 2, all primes have to be odd numbers, so start the sum at 2, and then
+   # loop through all odd numbers, adding them to sum_now if prime. count starts 
+   # at one, because of the 2.
+   i = 3
+   sum_now = 2
+   count = 1
+   while count < 1000:
       if isprime(i):
-         if ispalindrome(i):
-            return i
-      i -= 2
+         sum_now += i
+         count += 1
+      i += 2
+   return sum_now
 
-print prime_palindrome()
+print sum_primes()
       
 if __name__ == '__main__':
     import doctest
