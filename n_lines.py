@@ -46,7 +46,7 @@ for test in test_cases:
         else:
             add_line(lines, ntest, n)
 for i in lines:
-    print i
+    print(i)
 
 test_cases.close()
 
